@@ -50,6 +50,12 @@ typedef NS_ENUM(NSUInteger, SVProgressHUDMaskType) {
 + (void)setStatus:(NSString*)string; // change the HUD loading status while it's showing
 
 // stops the activity indicator, shows a glyph + status, and dismisses HUD 1s later
+
+
++ (void)showSuccessWithStatus:(NSString*)string displayInterval:(NSTimeInterval)displayInterval;
++ (void)showErrorWithStatus:(NSString *)string displayInterval:(NSTimeInterval)displayInterval;
++ (void)showImage:(UIImage*)image status:(NSString*)status displayInterval:(NSTimeInterval)displayInterval;
+
 + (void)showSuccessWithStatus:(NSString*)string;
 + (void)showErrorWithStatus:(NSString *)string;
 + (void)showImage:(UIImage*)image status:(NSString*)status; // use 28x28 white pngs

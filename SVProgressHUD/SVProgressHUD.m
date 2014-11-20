@@ -150,6 +150,24 @@ static const CGFloat SVProgressHUDParallaxDepthPoints = 10;
 }
 
 #pragma mark - Show then dismiss methods
+    // stops the activity indicator, shows a glyph + status, and dismisses HUD 1s later
++ (void)showSuccessWithStatus:(NSString*)string displayInterval:(NSTimeInterval)displayInterval
+{
+    [self sharedView];
+    [[self sharedView] showImage:SVProgressHUDSuccessImage status:string duration:displayInterval];
+}
+
++ (void)showErrorWithStatus:(NSString *)string displayInterval:(NSTimeInterval)displayInterval
+{
+    [self sharedView];
+    [[self sharedView] showImage:SVProgressHUDErrorImage status:string duration:displayInterval];
+}
+
++ (void)showImage:(UIImage*)image status:(NSString*)status displayInterval:(NSTimeInterval)displayInterval
+{
+    [self sharedView];
+    [[self sharedView] showImage:image status:status duration:displayInterval];
+}
 
 + (void)showSuccessWithStatus:(NSString *)string {
     [self sharedView];
@@ -165,6 +183,7 @@ static const CGFloat SVProgressHUDParallaxDepthPoints = 10;
     NSTimeInterval displayInterval = [[SVProgressHUD sharedView] displayDurationForString:string];
     [[self sharedView] showImage:image status:string duration:displayInterval];
 }
+
 
 
 #pragma mark - Dismiss Methods
